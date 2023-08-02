@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -146,6 +147,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # Whitelist access between origins
@@ -165,4 +167,11 @@ SITE_ID = 1
 
 REST_AUTH = {
     'SESSION_LOGIN': False
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
 }
